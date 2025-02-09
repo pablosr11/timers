@@ -5,7 +5,10 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Time Tracker",
+  title: {
+    template: '%s | Time Tracker',
+    default: 'Time Tracker'
+  },
   description: "Track time elapsed since important dates",
 };
 

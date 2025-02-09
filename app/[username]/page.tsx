@@ -3,16 +3,11 @@ import { AddTimerForm } from '@/components/AddTimerForm';
 import { TimerProvider } from '@/contexts/TimerContext';
 import { prisma } from '@/lib/db';
 
-// Add metadata
-export const metadata = {
-  title: 'Time Tracker',
-  description: 'Track time elapsed since important dates'
-};
-
 // Add dynamic metadata
 export async function generateMetadata({ params }: { params: { username: string } }) {
   return {
     title: `${params.username}'s Timers`,
+    description: 'Track time elapsed since important dates'
   };
 }
 
