@@ -20,6 +20,8 @@ async function getInitialTimers(username: string) {
   return timers.map(timer => ({
     ...timer,
     startDate: timer.startDate.toISOString(),
+    username: timer.username,
+    description: timer.description
   }));
 }
 

@@ -9,7 +9,8 @@ import { EditTimerDialog } from './EditTimerDialog';
 interface Timer {
   id: string;
   startDate: string;
-  description?: string;
+  description: string | null;
+  username: string;
 }
 
 export function TimerList({ username }: { username: string }) {

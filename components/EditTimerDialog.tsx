@@ -7,7 +7,8 @@ interface EditTimerDialogProps {
   timer: {
     id: string;
     startDate: string;
-    description?: string;
+    description: string | null;
+    username: string;
   };
   onClose: () => void;
   isOpen: boolean;
