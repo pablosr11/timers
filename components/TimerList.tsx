@@ -5,13 +5,7 @@ import { useTimers } from '@/contexts/TimerContext';
 import { TimeDisplay } from './TimeDisplay';
 import { DateDisplay } from './DateDisplay';
 import { EditTimerDialog } from './EditTimerDialog';
-
-interface Timer {
-  id: string;
-  startDate: string;
-  description: string | null;
-  username: string;
-}
+import type { Timer } from '@/types/timer';
 
 export function TimerList({ username }: { username: string }) {
   const { timers, refreshTimers } = useTimers();

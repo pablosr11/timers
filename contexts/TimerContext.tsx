@@ -1,13 +1,7 @@
 'use client';
 
 import { createContext, useContext, useState, useCallback } from 'react';
-
-interface Timer {
-  id: string;
-  startDate: string;
-  description: string | null;
-  username: string;
-}
+import type { Timer } from '@/types/timer';
 
 type TimerContextType = {
   timers: Timer[];

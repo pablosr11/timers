@@ -2,14 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import { useTimers } from '@/contexts/TimerContext';
+import type { Timer } from '@/types/timer';
 
 interface EditTimerDialogProps {
-  timer: {
-    id: string;
-    startDate: string;
-    description: string | null;
-    username: string;
-  };
+  timer: Timer;
   onClose: () => void;
   isOpen: boolean;
 }

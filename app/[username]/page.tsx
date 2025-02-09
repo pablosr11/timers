@@ -17,11 +17,9 @@ async function getInitialTimers(username: string) {
     orderBy: { startDate: 'desc' },
   });
   
-  return timers.map((timer: { startDate: Date; username: string; description: string }) => ({
+  return timers.map((timer) => ({
     ...timer,
     startDate: timer.startDate.toISOString(),
-    username: timer.username,
-    description: timer.description
   }));
 }
 
