@@ -1,0 +1,18 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Timer {
+  id          String   @id @default(cuid())
+  username    String
+  startDate   DateTime
+  description String?
+  createdAt   DateTime @default(now())
+
+  @@index([username])
+} 
