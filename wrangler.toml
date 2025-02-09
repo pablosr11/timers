@@ -1,8 +1,12 @@
 name = "timeros"
 compatibility_date = "2024-01-01"
 
-[build]
-command = "npm run build"
+[build.environment]
+NODE_VERSION = "18"
 
-[site]
-bucket = "out" 
+[[build.functions]]
+pattern = "/api/*"
+allowed_methods = ["GET", "POST", "PUT", "DELETE"]
+
+[functions]
+node_compat = true 

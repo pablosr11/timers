@@ -3,6 +3,19 @@ import { AddTimerForm } from '@/components/AddTimerForm';
 import { TimerProvider } from '@/contexts/TimerContext';
 import { prisma } from '@/lib/db';
 
+// Add metadata
+export const metadata = {
+  title: 'Time Tracker',
+  description: 'Track time elapsed since important dates'
+};
+
+// Add dynamic metadata
+export async function generateMetadata({ params }: { params: { username: string } }) {
+  return {
+    title: `${params.username}'s Timers`,
+  };
+}
+
 async function getInitialTimers(username: string) {
   const timers = await prisma.timer.findMany({
     where: { username: username.toLowerCase() },
@@ -16,6 +29,11 @@ async function getInitialTimers(username: string) {
 }
 
 export default async function UserProfile({ params }: { params: { username: string } }) {
+  // Add caching headers
+  const headers = {
+    'Cache-Control': 'public, s-maxage=1, stale-while-revalidate=59'
+  };
+
   const initialTimers = await getInitialTimers(params.username);
 
   return (
