@@ -1,0 +1,9 @@
+prisma/dev.db 
+node_modules
+out
+.env
+.DS_Store
+.next
+.vercel
+.wrangler
+.env.local
